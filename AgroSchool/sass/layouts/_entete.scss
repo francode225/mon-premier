@@ -1,0 +1,105 @@
+.entete{
+    max-height: 95px;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    background-color: $color-principal;
+    &__logo-descartes{
+        margin-top: 30px;
+    }
+    img{
+        width: 140px;
+        cursor: pointer;
+    }
+    @include responsive-mobile(425px){
+        padding: 0;
+        max-height: 80px;
+        width: 100%;
+        &__logo-agroschool img, &__logo-descartes img{
+            width: 100px;
+            margin: 5px;
+        }
+    }
+}
+.menu{
+    width: 100%;
+    height: 60px;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    position: relative;
+    z-index: 2;
+    ul{
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+    li{
+        list-style: none;
+    }
+    a{
+            position: relative;
+            display: block;
+            height: 60px;
+            padding: 15px;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $colorBlanche;
+            font-size: 18px;
+            z-index: 100;
+            &::before{
+                content: ' ';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 60px;
+                background-color: $colorBlanche;
+                transform-origin: right;
+                transform: scaleX(0);
+                transition: transform .5s;
+                z-index: -100;
+            }
+            &:hover{
+                color: $colorNoir;
+            }
+            &:hover::before{
+                transform-origin: left;
+                transform: scaleY(1);
+            }
+        }
+     
+        @include responsive-mobile(425px){
+            height: auto;
+            background-color: #000000;
+            transform: scale(0);
+            ul{
+                flex-direction: column;
+                li a{
+                    height: 20px;
+                    text-align: center;
+                    // border-top: 1px solid $colorBlanche;
+                    &::before{
+                        height: 100%;
+                    }
+                }
+            }
+        }
+}
+
+#hamburger{
+    color: #fff;
+    font-size: 2em;
+    margin: 0;
+    display: none;
+    padding: 15px 0 0 12px;
+    @include responsive-mobile(425px){
+        display: block;
+    }
+}
+
+ .apparition{
+    transform: scale(1);
+    transform-origin: left;
+    transition: transform .5s;
+    z-index: 100;
+}

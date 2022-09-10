@@ -1,0 +1,13 @@
+{
+  "name": "package-agroschool",
+  "version": "1.0.0",
+  "description": "Pour le site Agroschool",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ../sass:../css --style compressed",
+    "prefix": "postcss ../css/style-contact.css ../css/style-accueil.css  ../css/style-infos.css ../css/style-produits.css --use autoprefixer -d ../css/prefixed/"
+  },
+  "author": "Bamba Mohamed",
+  "license": "ISC",
+  "browserslist": "last 4 versions"
+}

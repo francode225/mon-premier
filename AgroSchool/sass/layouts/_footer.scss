@@ -1,0 +1,113 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.footer{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-around;
+    background-color: $colorNoirFooter;
+    color: $colorBlanche;
+    &__social{
+        display: flex;
+        flex-direction: column;
+        margin-left: -55px;
+        a{
+           @include boutonSocial();
+           text-decoration: none;
+        }
+        .facebook{
+            @include boutonSocial(#1877f2);
+        }
+        .whatsapp{
+            @include boutonSocial(#25D366);
+        }
+        .instagram{
+            @include boutonSocial(linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%));
+        }
+        span{
+            font-size: 23px;
+            text-align: center;
+            position: relative;
+            top: -5px;
+            left: 10px;
+        }
+    }
+    
+    &__btn{
+        h6{
+            margin-left: -25px;
+        }
+    }
+
+    &__contact{
+        margin: 20px -50px 0 0;
+        h3{
+            text-transform: uppercase;
+            font-size: 17px;
+        }
+        p{
+            font-size: large;
+        }
+    }
+
+
+
+    @include responsive-mobile(425px){
+        flex-direction: column;
+        &__social{
+            margin-left: 10px;
+            flex-direction: row;
+            justify-content: center;
+            a, .whatsapp, .facebook, .instagram{
+                background: none;
+                border: none;
+                width: auto;
+                padding: 0;
+            }
+            span{
+                display: none;
+            }
+        }
+        &__btn{
+            margin-left: 80px;
+        }
+        &__contact{
+            margin: -20px 0 0px 120px;
+        }
+    }
+
+    @include responsive-mobile(320px){
+        &__social{
+            margin-left: 14px;
+        }
+        &__btn{
+            margin-left: 50px;
+        }
+        &__contact{
+            margin-left: 90px;
+        }
+    }
+}
+
+#ancre{
+    font-size: 50px;
+    height: 40px;
+    width: 40px;
+    color: $color-principal;
+    background-color: #fff;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    transform: scale(0);
+    transition: transform .3s;
+    i{
+        position: relative;
+        top: -10px;
+        left: -5px;
+    }
+}
+

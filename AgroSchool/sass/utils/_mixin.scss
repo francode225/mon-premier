@@ -1,0 +1,117 @@
+@import "./variables";
+
+@keyframes parcoursRondLight{
+    0%{
+        box-shadow: 0 0 10px $color-principal,
+                              0 0 15px $color-principal,
+                              0 0 20px $color-principal;
+    }
+    100%{
+        box-shadow: 0 0 15px $color-principal,
+                              0 0 20px $color-principal,
+                              0 0 25px $color-principal;
+    }
+}
+
+@mixin bouton($left: 0, $size: 1em, $padding: 5px){
+    position: relative;
+    left: $left;
+    text-decoration: none;
+    color: $colorBlanche;
+    cursor: pointer;
+    font-size: $size;
+    text-align: center;
+    display: inline-block;
+    padding: $padding;
+    border: 2px solid $color-principal;
+    border-radius: 10px;
+    background-color: $color-principal;
+    transition: background-color .3s;
+    &:hover{
+        background-color: darken($color: $color-principal, $amount: 15);
+        border-color: darken($color: $color-principal, $amount: 15);;
+    }
+}
+
+
+@mixin boutonSocial($color: #ff0000, $paddingLeft: 10px){
+    width: 160px;
+    height: 30px;
+     font-size: 35px;
+    display: inline-block;
+    margin-right: 40px;
+    padding: 4px 0 12px $paddingLeft; 
+    border: solid 2px $color;
+    border-radius: 12px;
+    color: $colorBlanche;
+    background: $color;
+    transition: box-shadow .3s;
+    &:hover{
+        box-shadow: 0 10px 30px $colorNoir;
+    }
+}
+
+
+@mixin parcoursRond($text-parcours: "WAC 2018", $top: -60px, $left: -55px, $width: 130px){
+    content: $text-parcours;
+    position: absolute;
+    top: $top;
+    left: $left;
+    width: $width;
+    height: 90%;
+    padding: 2px;
+    text-align: center;
+    border: 2px double $color-principal;
+    background-color: rgba($color: $color-principal, $alpha: 0.8);
+    color: $color-info;
+    font-size: 22px;
+    font-family: 'Open Sans', 'Sriracha', 'Trebuchet ms', sans-serif;
+    font-weight: bold;
+}
+
+@mixin parcoursRondLight{
+    animation: parcoursRondLight 3s infinite reverse;
+}
+
+@mixin hautDePage{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        h2{
+        font-family: 'Raleway', 'trebuchet ms', sans-serif;
+        text-align: center;
+        color: $colorBlanche;
+        padding: 15px;
+        border: 2px solid $colorNoir;
+        background-color: $color-principal;
+        font-size: 30px;
+        z-index: 1;
+    }
+       p{
+            color: $colorBlanche;
+            font-size: 17px;
+            text-align: center;
+            font-family: 'Open Sans', 'trebuchet ms', sans-serif;
+            z-index: 1;
+        }
+}
+
+@mixin responsive-mobile($tailleEcran){
+    @if ($tailleEcran == 425px){
+        @media screen and (max-device-width: $tailleEcran) {
+        @content;
+      }
+    } @else if ($tailleEcran == 375px){
+        @media screen and (max-device-width: $tailleEcran) {
+        @content;
+    }
+}@else if ($tailleEcran == 320px){
+     @media screen and (max-device-width: $tailleEcran) {
+        @content;
+    }
+}
+}

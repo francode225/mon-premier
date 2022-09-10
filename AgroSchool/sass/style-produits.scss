@@ -1,0 +1,53 @@
+@import "./utils/variables";
+@import "./utils/mixin";
+@import "./base/base";
+@import "./layouts/entete";
+@import "./layouts/footer";
+
+.bloc1{
+    width: 100%;
+    height: 60vh;
+    background: url(../img/back-produit.png);
+    &__contenu{
+        @include hautDePage;
+    }
+}
+
+.bloc2{
+    width: 100%;
+    height: 190vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Open Sans', 'trebuchet ms', sans-serif;
+    background-color: #f1f1f1;
+    padding-top: 50px;
+    &__carte{
+        width: 900px;
+        height: 85vh;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-color: $color-principal;
+        box-shadow: 0 0 25px $color-principal;
+        img{
+                width: 100%;
+                height: 85vh;
+            }
+        &__text{
+            padding: 0 2rem 2rem 2rem;
+            text-align: justify;
+            p{
+                font-size: 15px;
+                color: $colorBlanche;
+            }
+            h2{
+                text-align: center;
+                color: $color-info;
+                margin-bottom: -20px;
+            }
+            h4{
+                text-align: center;
+            }
+        }
+    }
+}

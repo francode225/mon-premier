@@ -1,0 +1,105 @@
+@import "./utils/variables";
+@import "./utils/mixin";
+@import "./base/base";
+@import "./layouts/entete";
+@import "./layouts/footer";
+
+.bloc1{
+   width: 100%;
+    height: 60vh;
+    background: url(../img/back-produit.png);
+    &__contenu{
+        @include hautDePage;
+    }
+}
+
+.infos{
+    padding: 50px;
+    background-color: $color-principal;
+    &__element{
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-around;
+        &--line-espace{
+            line-height: 1.5;
+            margin-left: 80px;
+        }
+        p{
+            width: 40%;
+            font-weight: 2;
+            text-align: justify;
+            color: #fff;
+            font-family: 'Open Sans', 'trebuchet ms', sans-serif;
+        }
+        h2{
+            font-size: 70px;
+            position: relative;
+            top: 50%;
+            font-family: 'Sriracha', 'trebuchet ms', sans-serif;
+            color: $color-info;
+        }
+    }
+}
+
+.parcours{
+    box-sizing: border-box;
+    width: 100%;
+    height: 65vh;
+    padding-top: 50px;
+    font-family: 'Raleway', 'trebuchet ms', sans-serif;
+    background: url(../img/company-3277947_640.jpg) $colorNoirFooter;
+    background-blend-mode: luminosity;
+    // border-bottom: 5px solid $color-principal;
+    &__contenu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    h1{
+        font-family: 'Raleway', 'trebuchet ms', sans-serif;
+        text-align: center;
+        color: $colorBlanche;
+        padding: 15px;
+        border: 2px solid $colorNoir;
+        background-color: $color-principal;
+        font-size: 30px;
+        margin-bottom: 130px;
+    }
+    &__fleche{
+    width: 70%;
+    height: 5px;
+    margin: 0;
+    padding: 0;
+    background-color: $colorNoir;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    &__rond{
+        position: relative;
+        width: 35px;
+        height: 35px;
+        background-color: $color-info;
+        border-radius: 100px;
+        @include parcoursRondLight;
+        &--1::before{
+            @include parcoursRond;
+        }
+        &--2::before{
+            @include parcoursRond("VIVO", 60px, -45px, 110px);
+        }
+        &--3::before{
+            @include parcoursRond("La Francophonie", -60px, -80px, 180px);
+        }
+        &--4::before{
+            @include parcoursRond("Forum Entrepreneurial", 60px, -100px, 240px);
+        }
+        &--5::before{
+            @include parcoursRond("FIA");
+        }
+        &--6::before{
+            @include parcoursRond("WAC 2019", 60px, -50px);
+        }
+    }
+    }
+}
